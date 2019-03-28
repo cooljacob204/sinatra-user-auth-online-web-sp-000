@@ -34,7 +34,7 @@ class ApplicationController < Sinatra::Base
     
     session[:user_id] = user.id if user.password == params["password"]
     
-    redirect '/'
+    redirect '/users/home'
   end
 
   post '/sessions' do
