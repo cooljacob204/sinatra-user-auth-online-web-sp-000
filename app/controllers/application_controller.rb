@@ -25,8 +25,10 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/sessions/login' do
+    user = User.find_by_id(params["email"])
     
-    # the line of code below render the view page in app/views/sessions/login.erb
+    session[:user_id] = user.id if user.password == params["password"]
+    
     erb :'sessions/login'
   end
 
