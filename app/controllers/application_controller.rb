@@ -33,6 +33,8 @@ class ApplicationController < Sinatra::Base
     user = User.find_by_id(params["email"])
     
     session[:user_id] = user.id if user.password == params["password"]
+    
+    redirect '/'
   end
 
   post '/sessions' do
